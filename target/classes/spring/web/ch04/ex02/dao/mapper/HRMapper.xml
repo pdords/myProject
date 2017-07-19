@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="spring.web.ch04.ex02.dao.mapper.HRMapper">
+    <select id="getEmpCnt" resultType="employee">
+    <!-- employee클래스 명이 별명으로 자동 생성 이것은 SqlMapConfig.xml에서 설정했다.-->
+        select count(employee_id) empCnt from employees
+    </select>
+</mapper>
+<!-- empCnt 값이 도메인의 employee안의 값과 같다 그래서 OR매핑되어 들어
+	 갈 수 있게 되는 것이다. -->

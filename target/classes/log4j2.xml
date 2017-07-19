@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout />
+		</Console>		
+		<RollingFile name="file" fileName="c:/DEV/spring.web.log"
+			filePattern="c:/DEV/spring.%d{yyyy-MM-dd-HH-mm-ss}.log"
+			append="true">
+			<PatternLayout pattern="[%-5p: %d{yyyy/MM/dd HH:mm:ss}] %m%n" />
+			<Policies>				
+				<TimeBasedTriggeringPolicy interval="86400"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<!-- FATAL, ERROR, WARN, INFO, DEBUG, TRACE -->
+	<Loggers>		
+		<Root level="info">	<!-- 어느 수준까지 로그를 기록할 것인지를 기록하는 구문
+								 이것을 이용하면, 자동으로 에러메세지를 기록할 정도를 정한다. -->
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />									
+		</Root>
+	</Loggers>
+</Configuration>
